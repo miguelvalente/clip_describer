@@ -28,7 +28,7 @@ def generate_description(uploaded_image):
     if len(root_category.split()) > 1:
         root_category = rank_categories_with_clip(image, root_category.split())
 
-    level1 = list(set(get_related_words(root_category) + get_related_words(sub_category)))
+    level1 = list(set(get_words_one_level_below(root_category) + get_words_one_level_below(sub_category)))
     level1_rank = rank_categories_with_clip(image, level1, 3)
 
     level2 = [get_words_one_level_below(word) for word in level1]
