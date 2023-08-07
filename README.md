@@ -2,7 +2,7 @@
 
 Clip Describer is a project that utilizes the power of CLIP to rank keywords based on premade lists and WordNet. It features a frontend built with Streamlit to provide an interactive user experience.
 
-[Visit the Deployed App](https://yourappurl.com)
+[Visit the Deployed App](https://img2text-clip.streamlit.app/)
 
 ## Directory Structure
 
