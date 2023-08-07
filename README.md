@@ -1,4 +1,3 @@
-"""
 # Clip Describer
 
 Clip Describer is a project that utilizes the power of CLIP to rank keywords based on premade lists and WordNet. It features a frontend built with Streamlit to provide an interactive user experience.
@@ -48,7 +47,6 @@ Clip Describer is a project that utilizes the power of CLIP to rank keywords bas
    ```bash
    poetry install
    ```
-"""
 
 ## Usage
 
