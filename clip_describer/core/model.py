@@ -4,7 +4,7 @@ import clip
 import numpy as np
 
 
-device = "cpu" #"cuda" if torch.cuda.is_available() else "cpu"
+device = "cpu"
 
 model, preprocess = clip.load("ViT-B/32", device=device, download_root=".")
 
