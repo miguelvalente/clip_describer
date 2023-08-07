@@ -8,7 +8,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 
 model, preprocess = clip.load("ViT-B/32", device=device, download_root=".")
 
-def rank_categories_with_clip(model, image, categories, top_n=1):
+def rank_categories_with_clip(image, categories, top_n=1):
     text = clip.tokenize(categories).to(device)
 
     with torch.no_grad():

@@ -1,4 +1,5 @@
 import nltk
+from nltk.stem import WordNetLemmatizer
 def nltk_corpus_dl(corpus: str):
     try:
         nltk.data.find(f"corpora/{corpus}")
@@ -8,11 +9,13 @@ def nltk_corpus_dl(corpus: str):
         nltk.download(corpus)
         corpus_module = getattr(__import__("nltk.corpus", fromlist=[corpus]), corpus)
         return corpus_module
+
 wn = nltk_corpus_dl("wordnet")
+lemmatizer = WordNetLemmatizer()
 
 def get_words_one_level_below(category: str):
     # Get synsets for the given category
-    synsets = wn.synsets(category)
+    synsets = wn.synsets(lemmatize(category))
 
     # Collect hyponyms one level below
     words_below = []
@@ -26,7 +29,7 @@ def get_words_one_level_below(category: str):
 
 def get_related_words(word):
     # Finding synsets for the given word
-    synsets = wn.synsets(word)
+    synsets = wn.synsets(lemmatize(word))
 
     related_words = set()
 
@@ -56,3 +59,6 @@ def get_root_hypernyms(word):
     synsets = word.synsets(word)
     root_hypernyms = [syn.root_hypernyms()[0] for syn in synsets]
     return set(root_hypernyms)
+
+def lemmatize(word):
+    return lemmatizer.lemmatize(word) 
